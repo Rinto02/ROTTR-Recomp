@@ -1,0 +1,14 @@
+Windows Registry Editor Version 5.00
+
+; ============================================================
+; ROTTR In-Game Settings — Optimized for Android / Mobile
+; ============================================================
+; These registry entries mirror ROTTR's settings.ini values
+; via Wine registry for pre-configuration.
+;
+; Apply with: wine regedit patches/rottr-settings.reg
+
+; Note: ROTTR primarily reads settings from its own .ini file.
+; This reg file sets Wine-level overrides. The actual game
+; settings should be configured via the setup-prefix.sh script
+; which writes the game's config file directly.

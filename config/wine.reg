@@ -1,0 +1,43 @@
+Windows Registry Editor Version 5.00
+
+; ============================================================
+; Wine Registry Overrides — ROTTR Android Configuration
+; ============================================================
+; Apply with: wine regedit config/wine.reg
+
+; --- DLL Overrides ---
+; Force native DXVK libraries
+[HKEY_CURRENT_USER\Software\Wine\DllOverrides]
+"d3d11"="native"
+"d3d10core"="native"
+"d3d10"="native"
+"d3d9"="native"
+"dxgi"="native"
+"d3dcompiler_47"="native"
+"dinput"="native,builtin"
+"dinput8"="native,builtin"
+"xinput1_3"="native,builtin"
+"xinput1_4"="native,builtin"
+"xinput9_1_0"="native,builtin"
+
+; --- Video Memory ---
+; Report 2GB VRAM to the game (prevents it from loading ultra textures)
+[HKEY_CURRENT_USER\Software\Wine\Direct3D]
+"VideoMemorySize"="2048"
+"UseGLSL"="disabled"
+"MaxVersionGL"=dword:00040006
+
+; --- Desktop Integration ---
+; Use virtual desktop for stability
+[HKEY_CURRENT_USER\Software\Wine\Explorer\Desktops]
+"Default"="1280x720"
+
+; --- Performance ---
+; Disable unnecessary Wine services
+[HKEY_CURRENT_USER\Software\Wine]
+"HideWineExports"="Y"
+
+; --- Windows Version ---
+; Report as Windows 10 (ROTTR expects Win7+)
+[HKEY_LOCAL_MACHINE\Software\Wine]
+"Version"="win10"
